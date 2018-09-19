@@ -1,5 +1,5 @@
 <?php
-//require_once($_SERVER['DOCUMENT_ROOT'] .);
+//require_once('data.class.php');
 class User
 {
     private $username;
@@ -21,18 +21,21 @@ class User
      *
      * */
     public static function userLogin($inputUser, $inputPassword){
-        $userRetrieved = JSON::fetchUser($inputUser);
-        if(is_null($userRetrieved)){
+
+        //$userRetrieved = JSON::fetchUser($inputUser);
+        $userRetrieved = self::getVal($inputUser, 'users.json');
+
+        if($userRetrieved == false){
             //Usuario inexistente
-            return 1;
+            return 'noUser';
         } else{
             $hashToCheck = hash('SHA256', $inputPassword . $userRetrieved->salt);
-            if($hashToCheck == $userRetrieved['hash']){
-                $loggedUser = new User($userRetrieved['username'], $userRetrieved['hash'], $userRetrieved['salt']);
+            if($hashToCheck == $userRetrieved->hash){
+                $loggedUser = new User($userRetrieved->username, $userRetrieved->hash, $userRetrieved->salt);
                 return $loggedUser;
             } else{
                 //Contraseña incorrecta
-                return 2;
+                return 'wrongPassword';
             }
         }
     }
@@ -53,6 +56,26 @@ class User
 
     public function viewLogs(){
         $logs = new Logs($this);
+    }
+
+    public static function getVal($inputUser, $filePath){
+        $data = json_decode(file_get_contents($filePath), true);
+
+        echo '<br> Array devuelto <pre>';
+        print_r($data);
+        echo '<pre><br>';
+
+
+
+        foreach($data as $key => $value){
+            if($key == $inputUser){
+                $user = new User($key, $value['hash'], $value['salt']);
+                return $user;
+            }
+            else{
+                return false;
+            }
+        }
     }
 }
 

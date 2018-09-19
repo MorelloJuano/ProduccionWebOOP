@@ -1,5 +1,5 @@
 <?php
-
+require_once('backend/classes/user.class.php');
 function CreateUser($filePath){
     /*Hardcodeo un array de un logueo(user) que voy a recibir por parametro.
         Se testea su introduccion dentro del array data(json.decode) con exito.
@@ -24,7 +24,18 @@ function CreateUser($filePath){
     print_r( $data );
     echo '</pre>';
 }
-$data = CreateUser('users.json');
+
+//$data = CreateUser('users.json');
+
+$user = User::userLogin('Juano', 'testeo');
+var_dump($user);
+
+
+
+
+
+
+
 
 
 
