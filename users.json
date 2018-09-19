@@ -1,26 +1,27 @@
 {
-    "user1": {
-        "name": "testeo",
-        "hash": "3d9dfa242e13cf43b2196354637413b731de9fd0e58d2108d6e79e0efe711296",
-        "salt": "1cd2a3fa25e313d2ea70ddb4af4668dd2d6e6ea90561be8035def315c93ff10e",
-        "mail": "testeo@testeando.test"
-    },
-    "user2": {
-        "name": "testeo1",
-        "hash": "3d9dfa242e13cf43b2196354637413b731de9fd0e58d2108d6e79e0efe711296",
-        "salt": "1cd2a3fa25e313d2ea70ddb4af4668dd2d6e6ea90561be8035def315c93ff10e",
-        "mail": "testeo@testeando.test"
-    },
-    "user3": {
-        "name": "testeo2",
-        "hash": "3d9dfa242e13cf43b2196354637413b731de9fd0e58d2108d6e79e0efe711296",
-        "salt": "1cd2a3fa25e313d2ea70ddb4af4668dd2d6e6ea90561be8035def315c93ff10e",
-        "mail": "testeo@testeando.test"
-    },
-    "user4": {
-        "name": "testeo3",
-        "hash": "3d9dfa242e13cf43b2196354637413b731de9fd0e58d2108d6e79e0efe711296",
-        "salt": "1cd2a3fa25e313d2ea70ddb4af4668dd2d6e6ea90561be8035def315c93ff10e",
-        "mail": "testeo@testeando.test"
-    }
+  "Juano": {
+    "hash": "3d9dfa242e13cf43b2196354637413b731de9fd0e58d2108d6e79e0efe711296",
+    "salt": "1cd2a3fa25e313d2ea70ddb4af4668dd2d6e6ea90561be8035def315c93ff10e",
+    "mail": "juano@testeando.test"
+  },
+  "NicoM": {
+    "hash": "3d9dfa242e13cf43b2196354637413b731de9fd0e58d2108d6e79e0efe711296",
+    "salt": "1cd2a3fa25e313d2ea70ddb4af4668dd2d6e6ea90561be8035def315c93ff10e",
+    "mail": "nicoMolina@testeando.test"
+  },
+  "NicoL": {
+    "hash": "3d9dfa242e13cf43b2196354637413b731de9fd0e58d2108d6e79e0efe711296",
+    "salt": "1cd2a3fa25e313d2ea70ddb4af4668dd2d6e6ea90561be8035def315c93ff10e",
+    "mail": "nicoLema@testeando.test"
+  },
+  "Facu": {
+    "hash": "3d9dfa242e13cf43b2196354637413b731de9fd0e58d2108d6e79e0efe711296",
+    "salt": "1cd2a3fa25e313d2ea70ddb4af4668dd2d6e6ea90561be8035def315c93ff10e",
+    "mail": "facuSaine@testeando.test"
+  },
+  "Lauta": {
+    "hash": "3d9dfa242e13cf43b2196354637413b731de9fd0e58d2108d6e79e0efe711296",
+    "salt": "1cd2a3fa25e313d2ea70ddb4af4668dd2d6e6ea90561be8035def315c93ff10e",
+    "mail": "LautaIborra@testeando.test"
+  }
 }

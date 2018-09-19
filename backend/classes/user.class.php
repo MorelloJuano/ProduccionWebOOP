@@ -1,5 +1,5 @@
 <?php
-require_once('../../config.php');
+//require_once($_SERVER['DOCUMENT_ROOT'] .);
 class User
 {
     private $username;
@@ -12,9 +12,9 @@ class User
 
     public function __construct($username, $hash, $salt){
         //construir SOLAMENTE cuando se loguea el usuario
-        $this->$username = $username;
-        $this->$hash = $hash;
-        $this->$salt = $salt;
+        $this->username = $username;
+        $this->hash = $hash;
+        $this->salt = $salt;
     }
     /*
      * Busca un usuario, si lo encuentra, hace los chequeos para ver si la password coincide con el input del usuario
@@ -53,7 +53,6 @@ class User
 
     public function viewLogs(){
         $logs = new Logs($this);
-
     }
 }
 

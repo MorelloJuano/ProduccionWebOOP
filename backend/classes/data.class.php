@@ -1,13 +1,16 @@
 <?php
 class JSON
 {
+    private $fileName;
 
+    public function __CONSTRUCT($filePath){
+        $this->fileName = $filePath;
+    }
     //Funcion para levantar y leer json
-    function FetchUser($nameUser)
+    public function FetchUser($nameUser)
     {
-        $file_name = "../users.json";
-        $file = fopen($file_name, 'r');
-        $data = json_decode(fread($file, filesize($file_name)));
+        $file = fopen($this->fileName, 'r');
+        $data = json_decode(fread($file, filesize($this->fileName)));
         foreach ($data as $elemento) {
             if ($nameUser == $elemento->name) {
                 echo 'Tengo que retornar un objeto usuario con sus atributos';
@@ -20,10 +23,10 @@ class JSON
         fclose($file);
     }
 
-    function CreateUser($user){
-            $file_name = "users.json";
-            $file = fopen($file_name, 'r');
-            $data = json_decode(fread($file, filesize($file_name)));
+    public function CreateUser($user){
+            //$file_name = "users.json";
+            $file = fopen($this->fileName, 'r');
+            $data = json_decode(fread($file, filesize($this->fileName)));
             /*Hardcodeo un array de un logueo(user) que voy a recibir por parametro.
             Se testea su introduccion dentro del array data(json.decode) con exito.
             Falta agregar los \n para que se vea con orden.
@@ -49,6 +52,20 @@ class JSON
             //fwrite($file, $salvar);
 
             fclose($file);
+        }
+
+        public function fetchLog(User $user){ //Debería devolver un objeto logs
+
+        }
+
+        public function writeLog(User $user){ //Debería crear una nueva entrada en el archivo de Logs
+
+        }
+
+        public function writeJSON($filePath, $content){
+            $rawContent = json_decode(file_get_contents($filePath), true);
+
+
         }
 }
 

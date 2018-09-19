@@ -1,42 +1,30 @@
 <?php
 
-require_once('config.php');
-
-function CreateUser(){
+function CreateUser($filePath){
     /*Hardcodeo un array de un logueo(user) que voy a recibir por parametro.
         Se testea su introduccion dentro del array data(json.decode) con exito.
         Falta agregar los \n para que se vea con orden.
         Inconveniente al intentar escribir el users.json, ya que lo escribe por fuera
         de los logueos registrados.
     */
-    $file_name = "users.json";
-    $file = fopen($file_name, 'r');
-    $data = json_decode(fread($file, filesize($file_name)));
+    $data = json_decode(file_get_contents($filePath), true);
+    echo 'Datos originales <pre>';
+    print_r( $data );
+    echo '</pre>';
 
-//USUARIO HARDCODEADO
-    $usu=array(
-        "UsuarioNuevo"=>
-            array(
-                "NOMBRE"=>"NICOLAS",
-                "MAIL"=>"NUEVOMAIL")
-    );
-       //var_dump($usu);
+    echo '<br>Array con el nuevo usuario pusheado al final (aunque es irrelevante donde lo inserta en este caso)<br>';
 
-//INGRESO DE USUARIO A DATA
-        $usu = 'NuevoUsuario';
-        $datosUsuario = array();
-        $datosUsuario['name'] = $usu ;
-        $data->NuevoRegistro = $datosUsuario;
-        //var_dump($data);
+    $data['Testeo'] = [
+        'hash'   => '3d9dfa242e13cf43b2196354637413b731de9fd0e58d2108d6e79e0efe711296',
+        'salt'   => '1cd2a3fa25e313d2ea70ddb4af4668dd2d6e6ea90561be8035def315c93ff10e',
+        'email'  => 'testerin@testeando.test'
+    ];
 
-//ENCODE DE DATA CON USUARIO DENTRO
-        $algo = json_encode($data);
-        var_dump($algo);
-        //fwrite($file, $salvar);
-
-    fclose($file);
+    echo '<pre>';
+    print_r( $data );
+    echo '</pre>';
 }
-$data = CreateUser();
+$data = CreateUser('users.json');
 
 
 
