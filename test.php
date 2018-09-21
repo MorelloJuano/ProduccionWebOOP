@@ -1,4 +1,94 @@
 <?php
+
+class Testing
+{
+    private $path = "users.json";
+
+    public function __construct($path)
+    {
+        $this->path = $path;
+    }
+
+    public function FetchUser() //recibe un nameUser String como parametro
+    {
+        if (!file_exists($this->path)) {
+            return "Ruta de archivo inexistente";
+        }
+        $users = json_decode(file_get_contents($this->path), true);
+
+        $user["NuevoUser321"] = [
+            "name" => "nicomolina",
+            'hash' => 'niconiconiconiconiconico',
+            'salt' => 'nico2nico2niconiconico2',
+            'email' => 'nico3@nico4.nico5'
+        ];
+//////////////////////////////////////////////////////////////////////////////////////////////////
+        /*Chequea que el objeto usuario no exista en el array objetos usuarios, si no esta, lo crea y retorna
+        si existe lo retorna
+        if(!in_array($user, $users, true)){
+            echo "estas en el true, por que no existe <br>";
+            $this->CreateUser($user);
+            return $user;
+        }else{
+            echo "estas en el false, por que existe <br>";
+            return $user;
+        }
+        echo "echo fuera del if";
+        */
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        /*Recibe como parametro un String que es el nombre del usuario, chequea si existe ese index en el array
+                 usuarios, si no lo encuentra avisa que no existe, si lo encuentra, retorna el objeto usuario
+                 con todos sus datos
+        */
+        $nameUser = "Nuevo_De_Usuario56+789";
+        foreach ($users as $elemento) {
+            if (!array_key_exists($nameUser, $elemento)) {
+                echo "estas en el true, por que no existe <br>";
+                return "Nombre de usuario inexistente";
+            } else {
+                echo "estas en el false, por que existe <br>";
+                //var_dump($elemento[$nameUser]);
+                return $elemento[$nameUser];
+            }
+        }
+    }
+
+    public function CreateUser($user) //recibe usuario
+    {
+
+        if (!file_exists($this->path)) {
+            return "Ruta de archivo inexistente";
+        }
+        $users = json_decode(file_get_contents($this->path), true);
+
+        /*
+                $user["Nuevo_De_Usuario94"] = [
+                    "name" => "nicomolina",
+                    'hash' => 'niconiconiconiconiconico',
+                    'salt' => 'nico2nico2niconiconico2',
+                    'email' => 'nico3@nico4.nico5'
+                ];
+        */
+        if (!in_array($user, $users, true)) {
+            $users[] = $user;
+        } else {
+            return "Usuario existente";
+        }
+
+        $save_changes = json_encode($users, JSON_PRETTY_PRINT);
+        file_put_contents($this->path, $save_changes);
+
+    }
+}
+$test = new Testing("users.json");
+
+echo $test->FetchUser();
+//$test->FetchUser();
+//$test->CreateUser();
+//----------------------------
+/*TEST FINALIZADO Nico M*/
+/////////////////////////////////////////////////////////////////
 require_once('backend/classes/user.class.php');
 function CreateUser($filePath){
     /*Hardcodeo un array de un logueo(user) que voy a recibir por parametro.
@@ -29,8 +119,6 @@ function CreateUser($filePath){
 
 $user = User::userLogin('Juano', 'testeo');
 var_dump($user);
-
-
 
 
 
