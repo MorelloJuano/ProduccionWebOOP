@@ -1,94 +1,49 @@
 <?php
 class JSON
 {
-    private $fileName;
+    private $path = "../users.json";
 
-    public function __CONSTRUCT($filePath){
-        $this->fileName = $filePath;
+    public function __construct($path)
+    {
+        $this->path = $path;
     }
-    //Funcion para levantar y leer json
+/*Recibe como parametro un String que es el nombre del usuario, chequea si existe ese index en el array
+  usuarios, si no lo encuentra avisa que no existe, si lo encuentra, retorna el objeto usuario
+  con todos sus datos
+*/
     public function FetchUser($nameUser)
     {
-        $file = fopen($this->fileName, 'r');
-        $data = json_decode(fread($file, filesize($this->fileName)));
-        foreach ($data as $elemento) {
-            if ($nameUser == $elemento->name) {
-                echo 'Tengo que retornar un objeto usuario con sus atributos';
-                //retornar el usuario con sus datos encapsulados
-                //Si se encuentra el user, creamos un usuario
-                //$user = new User($valor['username'], $valor['hash'], $valor['salt']);
-                //return $user;
+        if(!file_exists($this->path)){
+            return "Ruta de archivo inexistente";
+            die();
+        }
+        $users = json_decode(file_get_contents($this->path), true);
+
+        foreach ($users as $elemento) {
+            if (!array_key_exists($nameUser, $elemento)) {
+                return "Nombre de usuario inexistente";
+            } else {
+                return $elemento[$nameUser];
             }
         }
-        fclose($file);
     }
-
-    public function CreateUser($user){
-            //$file_name = "users.json";
-            $file = fopen($this->fileName, 'r');
-            $data = json_decode(fread($file, filesize($this->fileName)));
-            /*Hardcodeo un array de un logueo(user) que voy a recibir por parametro.
-            Se testea su introduccion dentro del array data(json.decode) con exito.
-            Falta agregar los \n para que se vea con orden.
-            Inconveniente al intentar escribir el users.json, ya que lo escribe por fuera
-            de los logueos registrados.
-            */
-            $usu=array(
-                "UsuarioNuevo"=>
-                    array(
-                        "NOMBRE"=>"NICOLAS",
-                        "MAIL"=>"NUEVOMAIL")
-            );
-            //var_dump($usu);
-
-            $usu = 'NuevoUsuario';
-            $datosUsuario = array();
-            $datosUsuario['name'] = $usu ;
-            $data->NuevoRegistro = $datosUsuario;
-            //var_dump($data);
-
-            $algo = json_encode($data);
-            var_dump($algo);
-            //fwrite($file, $salvar);
-
-            fclose($file);
+/*Recibe objeto usuario, chequea si existe en el JSON, si no existe lo crea ingresandolo al JSON
+ * */
+    public function CreateUser(User $user)
+    {
+        if(!file_exists($this->path)){
+            return "Ruta de archivo inexistente";
+            die();
         }
+        $users = json_decode(file_get_contents($this->path), true);
 
-        public function fetchLog(User $user){ //Debería devolver un objeto logs
-
+        if (!in_array($user, $users, true)) {
+            $users[] = $user;
+        }else{
+            return "Usuario existente";
         }
+        $save_changes = json_encode($users, JSON_PRETTY_PRINT);
+        file_put_contents($this->path, $save_changes);
 
-        public function writeLog(User $user){ //Debería crear una nueva entrada en el archivo de Logs
-
-        }
-
-        public function writeJSON($filePath, $content){
-            $rawContent = json_decode(file_get_contents($filePath), true);
-
-
-        }
-}
-
-
-
-/*
-class Data{
-    private $path;
-
-    public function __construct($path){
-        $this->path = $path;
-}
-
-    public function readData($field, $value){
-        $handle = fopen($this->path, 'r');
-        $data = fread($handle);
-        $data = json_decode($data, true);
-
-        foreach($data as $key => $value){
-            //if()
-        }
     }
-
-
 }
-*/
