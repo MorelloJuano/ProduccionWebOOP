@@ -34,11 +34,14 @@ body{
 
 
 <!--NAVBARS-->
-<?php  
-        include("indexParts/navbarLogOf.php");
-?>
 <?php
-        //include("indexParts/navbarLogOn.php");
+//incluye template dependiendo si hay session iniciada y cual
+    if(!isset($_SESSION['user']) || $_SESSION['user'] == ' '){
+
+        include("indexParts/navbarLogOf.php");
+}else{
+        include("indexParts/navbarLogOn.php");
+    }
 ?>
  
 

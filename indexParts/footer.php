@@ -8,7 +8,7 @@
 #accordion {
     position: fixed;
     bottom: 0;
-    width: 100%;    
+    width: 100%;
 }
 
 .panel-default > .panel-heading{
@@ -26,20 +26,25 @@
 }
 
 .panel-title a {
-    color: #00000;
+    color: #0000;
     text-align: center;
     width: 100%;
     display: block;
-    padding: 10px 15px;
+    padding: 0px 5px;
     font-size: 24px;
     font-family: Helvetica,Arial,sans-serif;
     outline: none;
 }
 
-.panel-title a:hover, .panel-title a:focus, .panel-title a:active {
+.panel-title a:hover,  .panel-title a:active {
     text-decoration: none;
     outline: none;
+    -webkit-box-shadow: 6px -27px 70px -12px rgba(255,255,255,1);
+    -moz-box-shadow: 6px -27px 70px -12px rgba(255,255,255,1);
+    box-shadow: 6px -27px 70px -12px rgba(255,255,255,1);
 }
+
+
 
 .fondoBlanco{
 	color: white; 
@@ -48,6 +53,8 @@
 .sep{
 	margin-right: 5px;
 }
+
+
 
 
 </style>
@@ -73,17 +80,3 @@
 </div>
 
 
-
-<script type="text/javascript">
-	$('#collapseOne').on('show.bs.collapse', function () {    
-    $('.panel-heading').animate({
-        backgroundColor: "#515151"
-    }, 500);   
-})
-
-$('#collapseOne').on('hide.bs.collapse', function () {    
-    $('.panel-heading').animate({
-        backgroundColor: "#00B4FF"
-    }, 500);   
-})
-</script>
