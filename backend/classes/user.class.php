@@ -1,5 +1,5 @@
 <?php
-//require_once('data.class.php');
+require_once('data.class.php');
 class User
 {
     private $username;
@@ -22,8 +22,7 @@ class User
      * */
     public static function userLogin($inputUser, $inputPassword){
 
-        //$userRetrieved = JSON::fetchUser($inputUser);
-        $userRetrieved = self::getVal($inputUser, 'users.json');
+        $userRetrieved = JSON::fetchUser($inputUser);
 
         if($userRetrieved == false){
             //Usuario inexistente
@@ -56,26 +55,6 @@ class User
 
     public function viewLogs(){
         $logs = new Logs($this);
-    }
-
-    public static function getVal($inputUser, $filePath){
-        $data = json_decode(file_get_contents($filePath), true);
-
-        echo '<br> Array devuelto <pre>';
-        print_r($data);
-        echo '<pre><br>';
-
-
-
-        foreach($data as $key => $value){
-            if($key == $inputUser){
-                $user = new User($key, $value['hash'], $value['salt']);
-                return $user;
-            }
-            else{
-                return false;
-            }
-        }
     }
 }
 
