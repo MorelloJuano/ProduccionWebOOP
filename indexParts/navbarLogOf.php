@@ -29,10 +29,10 @@ nav a{
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <form class="form-inline my-5 my-lg-0 ml-auto .text-white ">
-      <input class="form-control mr-sm-2 " type="search" placeholder="Usuario">
-       <input class="form-control mr-sm-2" type="search" placeholder="Contraseña">
-      <a class="btn btn-primary my-2 my-sm-0 mr-2 text-white " type="submit">LogIn</a>
+    <form class="form-inline my-5 my-lg-0 ml-auto .text-white " method="post" action="sessions/procesar_session.php">
+      <input class="form-control mr-sm-2 " type="search" placeholder="Usuario" name="usuario">
+       <input class="form-control mr-sm-2" type="search" placeholder="Contraseña" name="contraseña">
+      <button class="btn btn-primary my-2 my-sm-0 mr-2 text-white " type="submit">LogIn</button>
       <a class="btn btn-success my-2 my-sm-0 text-white" type="submit" data-toggle="modal" data-target="#exampleModalCenter">SingUp</a>
     </form>
   </div>
