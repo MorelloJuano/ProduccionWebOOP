@@ -19,11 +19,7 @@
    
     <form class="form-inline my-2 my-lg-0 mr-5 ml-auto ">
       <a class="btn btn-success my-2 my-sm-0 mr-2 text-white" type="submit">ViewLogs</a>
-
-        <form action="/sessions/salir_session.php">
-            <button class="btn btn-danger my-2 my-sm-0 text-white" type="submit">LogOut</button>
-        </form>
-
+      <a class="btn btn-danger my-2 my-sm-0 text-white" href="sessions/salir_session.php">LogOut</a>
     </form>
   </div>
 </nav>
