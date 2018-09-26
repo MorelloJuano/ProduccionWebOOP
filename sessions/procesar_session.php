@@ -9,7 +9,7 @@ $checklogin = User::userLogin($inputUser,$inputPassword);
 if(gettype($checklogin) == "object"){
 
     $_SESSION['ingreso'] = $checklogin;
-    header("Location: /index.php");
+    header("Location: ../index.php");
 
 }else if($checklogin == "wrongPassword"){
     echo "error1";
