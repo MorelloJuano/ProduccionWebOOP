@@ -1,7 +1,7 @@
 <?php
 class JSON
 {
-    private static $userPath = "./users.json";
+    private static $userPath = "/users.json";
     private static $logsPath = "../../logs.json";
 
 /*Recibe como parametro un String que es el nombre del usuario, chequea si existe ese index en el array
@@ -10,11 +10,11 @@ class JSON
 */
     public static function FetchUser($nameUser)
     {
-        if(!file_exists(self::$userPath)){
+        if(!file_exists("../users.json")){
             return "Ruta de archivo inexistente";
             die();
         }
-        $users = json_decode(file_get_contents(self::$userPath), true);
+        $users = json_decode(file_get_contents("../users.json"), true);
         
         if(!array_key_exists($nameUser, $users)){
             return 'Nombre de usuario inexistente';
@@ -27,11 +27,11 @@ class JSON
  * */
     public static function CreateUser(User $user)
     {
-        if(!file_exists(self::$userPath)){
+        if(!file_exists(self::$usersPath)){
             return "Ruta de archivo inexistente";
             die();
         }
-        $users = json_decode(file_get_contents($self->userPath), true);
+        $users = json_decode(file_get_contents(self::$userPath), true);
 
         if (!in_array($user, $users, true)) {
             $users[] = $user;

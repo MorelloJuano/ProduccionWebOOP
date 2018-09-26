@@ -23,7 +23,8 @@ class User
     public static function userLogin($inputUser, $inputPassword){
 
         $userRetrieved = JSON::fetchUser($inputUser);
-
+        var_dump($userRetrieved);
+        die();
         if($userRetrieved == false){
             //Usuario inexistente
             return 'noUser';
