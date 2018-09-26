@@ -36,7 +36,7 @@ body{
 <!--NAVBARS-->
 <?php
 //incluye template dependiendo si hay session iniciada y cual
-    if(!isset($_SESSION['user']) || $_SESSION['user'] == ' '){
+    if(!isset($_SESSION['ingreso']) || $_SESSION['ingreso'] == ' '){
 
         include("indexParts/navbarLogOf.php");
 }else{
