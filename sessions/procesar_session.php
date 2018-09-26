@@ -4,11 +4,11 @@ require_once('../backend/classes/data.class.php');
 
 $inputUser = $_POST['usuario'];
 $inputPassword = $_POST['contraseña'];
-$checklogin - User::userLogin($inputUser,$inputPassword);
+$checklogin = User::userLogin($inputUser,$inputPassword);
 
 if(gettype($checklogin) == "object"){
 
-    $_SESSION['ingreso'] = "object";
+    $_SESSION['ingreso'] = $checklogin;
     header("Location: /index.php");
 
 }else if($checklogin == "wrongPassword"){
