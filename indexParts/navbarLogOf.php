@@ -30,10 +30,12 @@ nav a{
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <form class="form-inline my-5 my-lg-0 ml-auto .text-white " method="post" action="sessions/procesar_session.php">
-      <input class="form-control mr-sm-2 " type="search" placeholder="Usuario" name="usuario">
-       <input class="form-control mr-sm-2" type="search" placeholder="Contraseña" name="contraseña">
-      <button class="btn btn-primary my-2 my-sm-0 mr-2 text-white " type="submit">LogIn</button>
-      <a class="btn btn-success my-2 my-sm-0 text-white" type="submit" data-toggle="modal" data-target="#exampleModalCenter">SingUp</a>
+        <input class="form-control mr-sm-2 " type="text" placeholder="Usuario" name="usuario">
+        <input class="form-control mr-sm-2" type="password" placeholder="Contraseña" name="contraseña">
+        <button class="btn btn-primary my-2 my-sm-0 mr-2 text-white " type="submit">LogIn</button>
+        <!--
+        <a class="btn btn-success my-2 my-sm-0 text-white" type="submit" data-toggle="modal" data-target="#exampleModalCenter">SingUp</a>
+        -->
     </form>
   </div>
 </nav>
@@ -48,7 +50,7 @@ nav a{
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="" method="">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Usuario</label>
                         <input type="user" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuario">

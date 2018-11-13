@@ -12,9 +12,7 @@ if(gettype($checklogin) == "object"){
     header("Location: ../index.php");
 
 }else if($checklogin == "wrongPassword"){
-    echo "error1";
-    header("Location: ../index.php");
+    header("Location: ../index.php?error=wrongPassword");
 }else{
-    echo "error2";
-    header("Location: ../index.php");
+    header("Location: ../index.php?error=noFoundUser");
 }

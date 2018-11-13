@@ -26,7 +26,7 @@ class User
     public static function userLogin($inputUser, $inputPassword){
         $dataBase = new DBA();
 
-        $userRetrieved = $database->getLoginData($inputUser);
+        $userRetrieved = $dataBase->getLoginData($inputUser);
         if($userRetrieved == null){
             //Usuario inexistente
             return 'noUser';
@@ -50,8 +50,11 @@ class User
         echo "<pre>";
         var_dump($this->logs);
         echo "</pre>";
+    }
 
-        return $this->logs;
+    public function logout(){
+        $dataBase = new DBA();
+        $dataBase->insertUserLogs($this, "LOGOUT");
     }
 
     /*
@@ -67,11 +70,11 @@ class User
 
         $user = new User($inputUser, $hash, $salt);
 
-        JSON::createUser($user);
-    }
+        echo "<pre>";
+        var_dump($user);
+        echo "</pre>";
 
-    public function viewLogs(){
-        $logs = new Logs($this);
+        //JSON::createUser($user);
     }
 }
 

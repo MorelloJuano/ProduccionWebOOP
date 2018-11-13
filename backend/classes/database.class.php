@@ -48,8 +48,13 @@ class DBA{
     }
 
     public function insertUserLogs(User $user, $action){
-        $query = "INSERT INTO logs (dateLog, typeLog, idUser) VALUES (DATE(), $action, (SELECT idUser FROM users WHERE username = ?))";
-        $stmt = $this->connection->prepare($query);
+        $query1 = "SELECT idUser FROM users WHERE username = ?";
+        $stmt = $this->connection->prepare($query1);
         $stmt->execute([$user->username]);
+        $rawID = $stmt->fetch();
+        $id = $rawID['idUser'];
+        $query2 = "INSERT INTO logs (dateLog, typeLog, idUser) VALUES (?, ?, ?)";
+        $stmt2 = $this->connection->prepare($query2);
+        $stmt2->execute([date("Y-m-d H:i:s"), $action, $id]);
     }
 }
