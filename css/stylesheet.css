@@ -1,3 +1,7 @@
+*{
+	margin: 0;	
+}
+
 @import url('https://fonts.googleapis.com/css?family=Nunito:200');
 h1,
 h2,
@@ -9,9 +13,7 @@ button {
     font-family: 'Nunito', sans-serif;
 }
 
-body {
-    background-color: #dddddd;
-}
+
 
 nav {
     background-color: #dddddd00;
@@ -37,3 +39,26 @@ nav {
 #registerBtn {
     margin-left: 10px;
 }
+
+.fondonav{
+	background: #ffffff;
+}
+
+nav a{
+	color: #00000;
+}
+
+.colorBlanco{
+	color: #00000;
+}
+.navbar {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+}
+
+.navbar li { color: #000 } 
+
+
+
+

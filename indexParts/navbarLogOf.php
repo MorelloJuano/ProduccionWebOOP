@@ -1,26 +1,3 @@
-<style type="text/css">
-
-.fondonav{
-	background: #ffffff;
-}
-
-nav a{
-	color: #00000;
-}
-
-.colorBlanco{
-	color: #00000;
-}
-.navbar {
-   background-color: transparent;
-   background: transparent;
-   border-color: transparent;
-}
-
-.navbar li { color: #000 } 
-
-</style>
-
 
 <nav class="navbar navbar-expand-lg fondonav">
   <a class="navbar-brand text-white" href="#">Produccion Web</a>
