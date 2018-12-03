@@ -1,10 +1,18 @@
 <?php
 class Logs{
-    private $date;
-    private $type;
+    public $date;
+    public $type;
 
     public function __construct($date, $type){
         $this->date = $date;
         $this->type = $type;
+    }
+
+    public function getDate(){
+        return $this->date;
+    }
+
+    public function getType(){
+        return $this->type;
     }
 }

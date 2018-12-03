@@ -46,10 +46,7 @@ class User
     public function getLogs(){
         $dataBase = new DBA();
         $this->logs = $dataBase->getUserLogs($this);
-
-        echo "<pre>";
-        var_dump($this->logs);
-        echo "</pre>";
+        return $this->logs;
     }
 
     public function logout(){
